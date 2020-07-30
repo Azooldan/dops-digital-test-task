@@ -1,0 +1,17 @@
+.logo-container {
+  background: #6356B5 0% 0% no-repeat padding-box;
+  border-radius: 6px;
+  opacity: 1;
+  padding-left: 44px;
+  height: 44px;
+  margin: auto;
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  
+}
+.logo-text {
+  color: white;
+  font-size: 20px;
+  float: left;
+}

@@ -1,0 +1,27 @@
+.estimate-block-container {
+  border: 1px solid #494949;
+  border-radius: 4px;
+  width: 420px;
+  margin-top: 80px;
+}
+
+.estimate-cost {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.estimate-cost-text {
+  color: #7B7B7B;
+  text-align: center;
+
+}
+
+.estimate-cost-price {
+  color: white;
+  font-size: 40px;
+}
+.estimate-cost-line {
+  width: 99%;
+  color: #494949;
+}

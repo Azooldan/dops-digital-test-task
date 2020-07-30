@@ -1,0 +1,30 @@
+.main-text-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+  margin-top: 50px;
+  text-align: left;
+}
+
+.col-1-text {
+  color: white;
+  font-size: 49px;
+  line-height: 42px;
+  width: 40%
+}
+
+.col-2-text {
+  width: 16%;
+  padding-right: 10%;
+}
+
+.col-3-text {
+  width: 24%
+}
+
+.col-2-text, .col-3-text  {
+  color: #7B7B7B;
+  font-size: 14px;
+  line-height: 21px;
+}
