@@ -9,19 +9,53 @@
   margin: 20px 0;
   display: flex;
   flex-direction: column;
+  border-bottom: #7B7B7B;
 }
 
 .estimate-cost-text {
   color: #7B7B7B;
   text-align: center;
-
 }
 
 .estimate-cost-price {
   color: white;
   font-size: 40px;
 }
+
 .estimate-cost-line {
-  width: 99%;
-  color: #494949;
+  width: 100%;
+  height: 1px;
+  border: 0;
+  color: #333;
+  background-color: #333;
+}
+
+.progress-line {
+  width: 95%;
+  margin: auto;
+  height: 1px;
+}
+
+.contact-form {
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 95%;
+}
+
+.contact-form-input {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: #7B7B7B;
+  background-color:  #1B1B1B;
+  width: 100%;
+  margin: 15px 0;
+}
+.contact-form-submit {
+  width: 100%;
+  height: 40px;
+  background-color: #674BB1;
+  border-radius: 4px;
+  border: none;
+  color: white;
 }

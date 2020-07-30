@@ -1,5 +1,6 @@
 import React, { Component  } from "react";
 import './style.css';
+import ProgressBar from './ProgressBar';
 
 export default class EstimateBlock extends Component {
   constructor(props) {
@@ -20,11 +21,15 @@ export default class EstimateBlock extends Component {
         </div>
 
         <div className='progress-line'>
-
+          <ProgressBar completed={15} />
         </div>
 
         <div className='contact-form'>
-
+          <form>
+            <input className='contact-form-input' type="email" name="user_email" placeholder='E-mail'/>
+            <br/>
+            <input className='contact-form-submit' type="submit" value="Submit"/>
+          </form>
         </div>
 
       </div>
