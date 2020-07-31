@@ -5,15 +5,25 @@ export default class EvaluationTopics extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      card: this.props.card
+      card: this.props.card,
+      checked: false
     }
+  }
+  handleClick = (text) => {
+    this.setState( ({checked}) => {
+      return{
+        checked: !checked
+      }
+    })
+
+    this.props.handleCardClick(text)
   }
 
   render() {
-    const { card } = this.state;
+    const { card, checked } = this.state;
 
     return(
-      <div className='card'>
+      <div className={`${checked ? 'card card-active' : 'card'}`} onClick={() => this.handleClick(card.cardText)}>
         
         <div className='card-info-text'>
           <div className='card-number'>
@@ -25,7 +35,7 @@ export default class EvaluationTopics extends Component {
           </div>
         </div>
 
-        <div className='card-circle'></div>
+        <div className={`${checked ? 'card-circle card-circle-active' : 'card-circle'}`}></div>
 
       </div>
     );

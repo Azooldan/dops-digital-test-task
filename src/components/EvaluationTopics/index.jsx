@@ -21,7 +21,7 @@ export default class EvaluationTopics extends Component {
 
               <div className='topic-cards'>
                 {
-                  topic.cards.map(card => <TopicCard card ={card}/>)
+                  topic.cards.map(card => <TopicCard card={card} handleCardClick={this.props.handleCardClick}/>)
                 }
               </div>
 
