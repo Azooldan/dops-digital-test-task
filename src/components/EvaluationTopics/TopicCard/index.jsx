@@ -6,11 +6,14 @@ export default class EvaluationTopics extends Component {
     super(props);
     this.state = {
       card: this.props.card,
+      topic: this.props.topic,
       checked: false
     }
   }
 
-  handleClick = (card) => {
+  handleClick = () => {
+    const { card, topic, checked} = this.state;
+    
     this.setState( ({checked}) => {
       return{
         checked: !checked
@@ -18,14 +21,14 @@ export default class EvaluationTopics extends Component {
     });
 
     // pass !checked value for calculating total cost
-    this.props.handleCardClick(card, !this.state.checked);
+    this.props.handleCardClick(card, topic, !checked);
   }
 
   render() {
     const { card, checked } = this.state;
 
     return(
-      <div className={`${checked ? 'card card-active' : 'card'}`} onClick={() => this.handleClick(card)}>
+      <div className={`${checked ? 'card card-active' : 'card'}`} onClick={() => this.handleClick()}>
         
         <div className='card-info-text'>
           <div className='card-number'>

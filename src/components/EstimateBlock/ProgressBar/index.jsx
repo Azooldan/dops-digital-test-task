@@ -18,6 +18,7 @@ const ProgressBar = (props) => {
     backgroundColor: '#674BB1',
     borderRadius: 'inherit',
     textAlign: 'right',
+    transition: 'all 0.6s ease-out',
   }
 
   const dotUnmarked = {
@@ -27,7 +28,8 @@ const ProgressBar = (props) => {
     display: 'inline-block',
     transform: 'translate(0, -11px)',
     backgroundColor: "#1B1B1B",
-    border: '1px solid #7B7B7B'
+    border: '1px solid #7B7B7B',
+    transition: 'all 0.6s ease-out',
   }
 
   const dotMarked = {
@@ -37,7 +39,8 @@ const ProgressBar = (props) => {
     display: 'inline-block',
     transform: 'translate(0, -11px)',
     backgroundColor: "#674BB1",
-    border: '1px solid #674BB1'
+    border: '1px solid #674BB1',
+    transition: 'all 0.6s ease-out',
   }
   
   const dotContainer = {
@@ -73,10 +76,10 @@ const ProgressBar = (props) => {
         <span style={completed > 50 ? dotMarked : dotUnmarked}>
           <span style={dotNumber}>4</span>
         </span>
-        <span style={completed > 67 ? dotMarked : dotUnmarked}>
+        <span style={completed > 70 ? dotMarked : dotUnmarked}>
           <span style={dotNumber}>5</span>
         </span>
-        <span style={completed > 84 ? dotMarked : dotUnmarked}>
+        <span style={completed > 90 ? dotMarked : dotUnmarked}>
           <span style={dotNumber}>6</span>
         </span>
 

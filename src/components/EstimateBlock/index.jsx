@@ -21,7 +21,7 @@ export default class EstimateBlock extends Component {
         </div>
 
         <div className='progress-line'>
-          <ProgressBar completed={15} />
+          <ProgressBar completed={this.props.scrollProgress} />
         </div>
 
         <div className='contact-form'>

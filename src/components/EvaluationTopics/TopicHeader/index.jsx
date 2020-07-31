@@ -19,11 +19,11 @@ export default class TopicHeader extends Component {
         </div>
 
         <div className='topic-header-title'>
-          <p>{topic.title}</p>
+          <span>{topic.title}</span>
         </div>
 
         <div className='topic-header-text'>
-          <p>{topic.text}</p>
+          <span>{topic.text}</span>
         </div>
       </div>
     );

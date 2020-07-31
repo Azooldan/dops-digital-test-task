@@ -7,23 +7,77 @@ export default class EvaluationTopics extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      topicsWasScrolled: []
     }
+  }
+
+  componentDidMount() {
+    document.addEventListener('scroll', this.trackScrolling);
+  }
+  
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.trackScrolling);
+  }
+  
+  trackScrolling = () => {
+    // checking every topic if it was scrolled
+    topics.map( topic => {
+      const wrappedElement = document.getElementById(`topic-${topic.id}`);
+      const isElementBottom = wrappedElement.getBoundingClientRect().bottom <= window.innerHeight;
+
+      // if user scrolled to the topic`s bottom we need to add topic id to arr for
+      // tracking users reading progress 
+      if(isElementBottom) {
+        this.setState( ({topicsWasScrolled}) => {
+          if(!topicsWasScrolled.includes(topic.id)) {
+            return{
+              topicsWasScrolled: [...topicsWasScrolled, topic.id]
+            }
+          } 
+        })
+      } else { // if user scroll page up and lose sight of topic, we have to remove it`s id from progress arr
+        this.setState( ({topicsWasScrolled}) => {
+          if(topicsWasScrolled.includes(topic.id)) {
+            return{
+              topicsWasScrolled: topicsWasScrolled.filter(id => id !== topic.id)
+            }
+          }
+        })
+      }
+    })
+    this.changeScrollProgress()
+  };
+
+  changeScrollProgress = () => {
+    const { topicsWasScrolled } = this.state;
+    const scrolledTopicsNumber = topicsWasScrolled.length;
+
+    // TODO: think how to rewrite
+    let scrollProgress = 
+    scrolledTopicsNumber === 0 ? 0 :
+    scrolledTopicsNumber === 1 ? 13 :
+    scrolledTopicsNumber === 2 ? 31 :
+    scrolledTopicsNumber === 3 ? 50 :
+    scrolledTopicsNumber === 4 ? 69 :
+    scrolledTopicsNumber === 5 ? 87 : 100;
+
+    this.props.setScrollProgress(scrollProgress)
   }
 
   render() {
     const { handleCardClick } = this.props;
-
+    
     return(
       <div>
         {
           topics.map((topic, i) =>
-            <div key={i} className='topic-element'>
+            <div key={i} className='topic-element' id={`topic-${topic.id}`}>
 
               <TopicHeader topic={topic}/>
 
               <div className='topic-cards'>
                 {
-                  topic.cards.map((card, i) => <TopicCard key={i} card={card} handleCardClick={handleCardClick}/>)
+                  topic.cards.map((card, i) => <TopicCard key={i} card={card} topic={topic} handleCardClick={handleCardClick}/>)
                 }
               </div>
 
@@ -36,7 +90,7 @@ export default class EvaluationTopics extends Component {
 }
 
 const topics = [{
-  "topic_id": "1",
+  "id": "1",
   "number": "1",
   "title": "Choose the medium",
   "text": "Find out the difference in our examples by hovering the cursor.",
@@ -79,7 +133,7 @@ const topics = [{
   ]
 },
 {
-  "topic_id": "2",
+  "id": "2",
   "number": "2",
   "title": "Choose the style",
   "text": "How does the price change? Some styles take more time to produce = higher price.",
@@ -117,7 +171,7 @@ const topics = [{
   ]
 },
 {
-  "topic_id": "3",
+  "id": "3",
   "number": "3",
   "title": "Duration",
   "text": "Find a time that suits your animation idea.",
@@ -155,7 +209,7 @@ const topics = [{
   ]
 },
 {
-  "topic_id": "4",
+  "id": "4",
   "number": "4",
   "title": "Timeframe",
   "text": "Do you have a particular time frame in mind?",
@@ -193,7 +247,7 @@ const topics = [{
   ]
 },
 {
-  "topic_id": "5",
+  "id": "5",
   "number": "5",
   "title": "Production Quality",
   "text": "Choose Quality",
@@ -230,7 +284,7 @@ const topics = [{
     }
   ]
 },
-{"topic_id": "6",
+{"id": "6",
   
   "number": "6",
   "title": "Additional Options",
