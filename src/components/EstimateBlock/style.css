@@ -1,8 +1,6 @@
 .estimate-block-container {
   border: 1px solid #494949;
   border-radius: 4px;
-  width: 35%;
-  margin-top: 80px;
 }
 
 .estimate-cost {
@@ -19,7 +17,7 @@
 
 .estimate-cost-price {
   color: white;
-  font-size: 40px;
+  font-size: 45px;
 }
 
 .estimate-cost-line {

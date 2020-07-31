@@ -5,3 +5,27 @@
   margin-right: auto;
 }
 
+.main-content {
+  display: flex;
+  width: 100%;
+  margin-top: 80px;
+}
+
+.logo {
+  margin-top: 36px;
+}
+
+.main-text {
+  margin-top: 50px;
+}
+
+.estimate-block {
+  position: sticky;
+  top: 30%;
+  width: 45%;
+  margin-right: 20px;
+}
+
+.evaluation-topics {
+  width: 50%
+}
