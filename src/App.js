@@ -9,14 +9,27 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      estimatedCost: 0
     }
   }
 
-  handleCardClick(name) {
-    console.log(name)
+  handleCardClick = (card, isChecked) => {
+    this.changeEstimationValue(card, isChecked);
+  }
+
+  changeEstimationValue = (card, isChecked) => {
+    this.setState( ({estimatedCost}) => {
+      // calculating estimation value depends on card was checked or uncheked
+      const valueToSet = isChecked ? estimatedCost += parseInt(card.price) : estimatedCost -= parseInt(card.price);
+      return{
+        estimatedCost: valueToSet
+      }
+    })
   }
 
   render() {
+    const { estimatedCost } = this.state;
+
     return(
       <div className="App">
 
@@ -30,7 +43,7 @@ export default class App extends Component {
 
       <div className="main-content">
         <div className="estimate-block">
-          <EstimateBlock/>
+          <EstimateBlock value={estimatedCost}/>
         </div>
 
         <div className="evaluation-topics">

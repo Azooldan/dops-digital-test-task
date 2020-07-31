@@ -7,16 +7,16 @@ export default class EstimateBlock extends Component {
     super(props);
 
     this.state = {
-
     }
   }
 
   render() {
+    const { value } = this.props;
     return(
       <div className='estimate-block-container'>
         <div className='estimate-cost'>
           <span className='estimate-cost-text'>Estimate Cost</span>
-          <span className='estimate-cost-price'>$19.350</span>
+          <span className='estimate-cost-price'>${value}</span>
           <hr className='estimate-cost-line'></hr>
         </div>
 
