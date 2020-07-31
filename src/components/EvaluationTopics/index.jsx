@@ -12,14 +12,14 @@ export default class EvaluationTopics extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('scroll', this.trackScrolling);
+    document.addEventListener('scroll', this.trackScrolledElements);
   }
   
   componentWillUnmount() {
-    document.removeEventListener('scroll', this.trackScrolling);
+    document.removeEventListener('scroll', this.trackScrolledElements);
   }
   
-  trackScrolling = () => {
+  trackScrolledElements = () => {
     // checking every topic if it was scrolled
     topics.map( topic => {
       const wrappedElement = document.getElementById(`topic-${topic.id}`);
@@ -77,7 +77,13 @@ export default class EvaluationTopics extends Component {
 
               <div className='topic-cards'>
                 {
-                  topic.cards.map((card, i) => <TopicCard key={i} card={card} topic={topic} handleCardClick={handleCardClick}/>)
+                  topic.cards.map((card, i) => 
+                    <TopicCard 
+                      key={i} 
+                      card={card} 
+                      topic={topic} 
+                      handleCardClick={handleCardClick}/>
+                  )
                 }
               </div>
 

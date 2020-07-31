@@ -40,7 +40,7 @@ const ProgressBar = (props) => {
     transform: 'translate(0, -11px)',
     backgroundColor: "#674BB1",
     border: '1px solid #674BB1',
-    transition: 'all 0.6s ease-out',
+    
   }
   
   const dotContainer = {
@@ -64,22 +64,22 @@ const ProgressBar = (props) => {
       
       <div style={dotContainer}>
         
-        <span style={completed > 6 ? dotMarked : dotUnmarked}>
+        <span style={dotUnmarked}>
           <span style={dotNumber}>1</span>
         </span>
-        <span style={completed > 17 ? dotMarked : dotUnmarked}>
+        <span style={ dotUnmarked}>
           <span style={dotNumber}>2</span>
         </span>
-        <span style={completed > 33 ? dotMarked : dotUnmarked}>
+        <span style={ dotUnmarked}>
           <span style={dotNumber}>3</span>
         </span>
-        <span style={completed > 50 ? dotMarked : dotUnmarked}>
+        <span style={ dotUnmarked}>
           <span style={dotNumber}>4</span>
         </span>
-        <span style={completed > 70 ? dotMarked : dotUnmarked}>
+        <span style={ dotUnmarked}>
           <span style={dotNumber}>5</span>
         </span>
-        <span style={completed > 90 ? dotMarked : dotUnmarked}>
+        <span style={ dotUnmarked}>
           <span style={dotNumber}>6</span>
         </span>
 

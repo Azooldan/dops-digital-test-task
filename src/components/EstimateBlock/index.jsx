@@ -26,7 +26,7 @@ export default class EstimateBlock extends Component {
 
         <div className='contact-form'>
           <form>
-            <input className='contact-form-input' type="email" name="user_email" placeholder='E-mail'/>
+            <input className='contact-form-input' type="email" name="user_email" placeholder='E-mail' autoComplete="off"/>
             <br/>
             <input className='contact-form-submit' type="submit" value="Submit"/>
           </form>
