@@ -9,6 +9,7 @@ export default class EvaluationTopics extends Component {
       checked: false
     }
   }
+  
   handleClick = (text) => {
     this.setState( ({checked}) => {
       return{

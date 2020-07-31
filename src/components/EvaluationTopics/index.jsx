@@ -11,6 +11,8 @@ export default class EvaluationTopics extends Component {
   }
 
   render() {
+    const { handleCardClick } = this.props;
+
     return(
       <div>
         {
@@ -21,7 +23,7 @@ export default class EvaluationTopics extends Component {
 
               <div className='topic-cards'>
                 {
-                  topic.cards.map(card => <TopicCard card={card} handleCardClick={this.props.handleCardClick}/>)
+                  topic.cards.map(card => <TopicCard card={card} handleCardClick={handleCardClick}/>)
                 }
               </div>
 

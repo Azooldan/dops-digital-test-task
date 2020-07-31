@@ -20,8 +20,6 @@
 }
 
 .estimate-block {
-  position: sticky;
-  top: 30%;
   width: 45%;
   margin-right: 20px;
 }

@@ -1,6 +1,8 @@
 .estimate-block-container {
   border: 1px solid #494949;
   border-radius: 4px;
+  position: sticky;
+  top: 5%;
 }
 
 .estimate-cost {
