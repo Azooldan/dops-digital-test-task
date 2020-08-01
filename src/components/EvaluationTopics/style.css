@@ -6,3 +6,6 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
 }
+.topic-element {
+  margin-bottom: 50px;
+}

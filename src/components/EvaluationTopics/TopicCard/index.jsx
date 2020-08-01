@@ -25,16 +25,20 @@ export default class EvaluationTopics extends Component {
   }
 
   render() {
-    const { card, checked } = this.state;
+    const { card, checked, topic } = this.state;
 
     return(
       <div className={`${checked ? 'card card-active' : 'card'}`} onClick={() => this.handleClick()}>
-        
+
         <div className='card-info-text'>
           <div className='card-number'>
             {card.cardNumber}
           </div>
-          
+          {
+            parseInt(topic.id) === 1 
+              ? <img src='img/on-hover-mage.png' className="card-image" alt="Animated card picture"/> 
+              : null
+          }
           <div className='card-text'>
             {card.cardText}
           </div>
