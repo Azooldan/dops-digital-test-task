@@ -53,3 +53,6 @@
   opacity: 1;
   visibility: visible;
 }
+.card:hover{
+  opacity: 0.7;
+}

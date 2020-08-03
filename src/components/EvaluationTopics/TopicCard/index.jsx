@@ -26,7 +26,7 @@ export default class EvaluationTopics extends Component {
 
   render() {
     const { card, checked, topic } = this.state;
-
+    
     return(
       <div className={`${checked ? 'card card-active' : 'card'}`} onClick={() => this.handleClick()}>
 

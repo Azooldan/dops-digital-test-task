@@ -2,6 +2,9 @@ import React, { Component  } from "react";
 import './style.css';
 import TopicHeader from './TopicHeader';
 import TopicCard from './TopicCard';
+import TopicSlider from './TopicSlider';
+import TopicImages from "./TopicImages";
+
 
 export default class EvaluationTopics extends Component {
   constructor(props) {
@@ -72,18 +75,34 @@ export default class EvaluationTopics extends Component {
         {
           topics.map((topic, i) =>
             <div key={i} className='topic-element' id={`topic-${topic.id}`}>
-
+                {console.log(topic)}
               <TopicHeader topic={topic}/>
 
               <div className='topic-cards'>
                 {
-                  topic.cards.map((card, i) => 
-                    <TopicCard 
+                  topic.hasOwnProperty('cards') 
+                  ? topic.cards.map((card, i) => 
+                      <TopicCard 
+                        key={i} 
+                        card={card} 
+                        topic={topic} 
+                        handleCardClick={handleCardClick}/>
+                    ) 
+                  : topic.hasOwnProperty('images') 
+                  ? topic.images.map((image, i) => 
+                      <TopicImages 
+                        key={i} 
+                        image={image} 
+                        topic={topic} 
+                        handleCardClick={handleCardClick}/>
+                    ) 
+                  : topic.hasOwnProperty('slider') 
+                  ? <TopicSlider 
                       key={i} 
-                      card={card} 
+                      slider={topic.slider} 
                       topic={topic} 
                       handleCardClick={handleCardClick}/>
-                  )
+                  : null
                 }
               </div>
 
@@ -147,32 +166,32 @@ const topics = [{
     {
       "cardNumber": "1.0",
       "price": "500",
-      "cardText": "1.0",
+      "cardText": "3D Visualisation",
     },
     {
-      "cardNumber": "1.0",
+      "cardNumber": "2.0",
       "price": "500",
-      "cardText": "1.0",
+      "cardText": "3D Cartoon",
     },
     {
-      "cardNumber": "1.0",
+      "cardNumber": "3.0",
       "price": "500",
-      "cardText": "1.0",
+      "cardText": "Realistic Character Animation",
     },
     {
-      "cardNumber": "1.0",
+      "cardNumber": "4.0",
       "price": "500",
-      "cardText": "1.0",
+      "cardText": "Technical Visualisation",
     },
     {
-      "cardNumber": "1.0",
+      "cardNumber": "5.0",
       "price": "500",
-      "cardText": "1.0",
+      "cardText": "Robotic Character integration",
     },
     {
-      "cardNumber": "1.0",
+      "cardNumber": "6.0",
       "price": "500",
-      "cardText": "1.0",
+      "cardText": "Creature VFX",
     }
   ]
 },
@@ -181,113 +200,39 @@ const topics = [{
   "number": "3",
   "title": "Duration",
   "text": "Find a time that suits your animation idea.",
-  "cards" : [
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    }
-  ]
+  "slider" : {
+    "values": ['5', '10', '15', '20', '25', '30', '35', '40'],
+    "prices": ['50', '100', '150', '200', '250', '300', '350', '400'],
+  }
 },
 {
   "id": "4",
   "number": "4",
   "title": "Timeframe",
   "text": "Do you have a particular time frame in mind?",
-  "cards" : [
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    }
-  ]
+  "slider" : {
+    "values": ['Anytime', '16 weeks', '8 weeks', '4 weeks', 'ASAP'],
+    "prices": ['50', '100', '150', '200', '250'],
+  }
 },
 {
   "id": "5",
   "number": "5",
   "title": "Production Quality",
   "text": "Choose Quality",
-  "cards" : [
+  "images": [
     {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
+      "url": "",
+      "text": ""
     },
     {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
+      "url": "",
+      "text": ""
     },
     {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
+      "url": "",
+      "text": ""
     },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    }
   ]
 },
 {"id": "6",
@@ -299,32 +244,22 @@ const topics = [{
     {
       "cardNumber": "1.0",
       "price": "500",
-      "cardText": "1.0",
+      "cardText": "Music Track",
     },
     {
-      "cardNumber": "1.0",
+      "cardNumber": "2.0",
       "price": "500",
-      "cardText": "1.0",
+      "cardText": "Sound Effects",
     },
     {
-      "cardNumber": "1.0",
+      "cardNumber": "3.0",
       "price": "500",
-      "cardText": "1.0",
+      "cardText": "Voiceover",
     },
     {
-      "cardNumber": "1.0",
+      "cardNumber": "4.0",
       "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
-    },
-    {
-      "cardNumber": "1.0",
-      "price": "500",
-      "cardText": "1.0",
+      "cardText": "Storyboard",
     }
   ]
 },
