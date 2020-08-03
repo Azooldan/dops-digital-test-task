@@ -13,15 +13,12 @@ export default class EvaluationTopics extends Component {
 
   handleClick = () => {
     const { card, topic, checked} = this.state;
-    
+    this.props.calculateTopicPrice(topic, card, !checked);
     this.setState( ({checked}) => {
       return{
         checked: !checked
       }
     });
-
-    // pass !checked value for calculating total cost
-    this.props.handleCardClick(card, topic, !checked);
   }
 
   render() {

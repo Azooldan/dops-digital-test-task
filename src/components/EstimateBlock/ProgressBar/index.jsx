@@ -56,7 +56,6 @@ const ProgressBar = (props) => {
     transform: 'translate(0, 25px)',
     color: '#7B7B7B',
     fontSize: '12px',
-
   }
 
   return (

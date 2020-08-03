@@ -9,18 +9,23 @@ import Footer from './components/Footer';
 export default class App extends Component {
   constructor(props) {
     super(props);
+    const topicsPrices = {
+      '1': 0,
+      '2': 0,
+      '3': 0,
+      '4': 0,
+      '5': 0,
+      '6': 0,
+    }
+
     this.state = {
       estimatedCost: 0,
       selectedTopics: [],
       scrollProgress: 0,
       idChoseQuality: null,
-      qualityPrice: 0
+      qualityPrice: 0,
+      topicsPrices: topicsPrices
     }
-  }
-
-  handleCardClick = (card, topic, isChecked) => {
-    this.changeEstimationValue(card, topic, isChecked);
-    this.setCheckedTopics(topic, isChecked);
   }
   
   handleQualityChoose = (image) => {
@@ -29,27 +34,19 @@ export default class App extends Component {
         qualityPrice: image.price
     })
   }
-  setCheckedTopics = (topic, isChecked) => {
-    
-    // this.setState( ({selectedTopics}) => {
-    //   if (selectedTopics.includes(parseInt(topic.id))) {
-    //     return{
-    //       selectedTopics: [...selectedTopics]
-    //     }
-    //   }
 
-    //   // if this topic wasn`t selected before we have to add it id to selectedTopics
-    //   if(isChecked) {
-    //     return{
-    //       selectedTopics: [...selectedTopics, parseInt(topic.id)]
-    //     }
-    //   } else {
-    //     console.log(isChecked)
-    //     return {
-    //       selectedTopics: selectedTopics.filter(id => id !== topic.id)
-    //     }
-    //   }
-    // })
+  calculateTopicPrice = (topic, item, checked) => {
+    this.setState(prevState => {
+      const valueToSet = !checked ? parseInt(-item.price) : parseInt(item.price);
+      
+      return {
+        topicsPrices: {                             // object that we want to update
+          ...prevState.topicsPrices,                 // keep all other key-value pairs
+          [topic.id]: prevState.topicsPrices[topic.id] + valueToSet    // update the value of specific topic
+        }
+      }
+    })
+    this.calculateTotalPrice();
   }
 
   setScrollProgress = (value) => {
@@ -58,20 +55,20 @@ export default class App extends Component {
     })
   }
 
-  changeEstimationValue = (card, isChecked) => {
-    this.setState( ({estimatedCost, qualityPrice}) => {
-      // calculating estimation value depends on card was checked or uncheked
-      let valueToSet = isChecked ? estimatedCost += parseInt(card.price) : estimatedCost -= parseInt(card.price);
-      return{
-        estimatedCost: valueToSet
-      }
-    })
+  calculateTotalPrice = () => {
+    const { estimatedCost, qualityPrice, topicsPrices } = this.state;
+    let finalCost = estimatedCost + parseInt(qualityPrice);
+    
+    let topicsCost = 0;
+    for (let i = 1; i < 7; i++) {
+      topicsCost += topicsPrices[i]
+    }
+    return topicsCost + finalCost;
   }
-
+  
   render() {
-    const { estimatedCost, scrollProgress, idChoseQuality, qualityPrice } = this.state;
-    const finalCost = estimatedCost + parseInt(qualityPrice);
-
+    const { scrollProgress, idChoseQuality, topicsPrices } = this.state;
+    
     return(
       <div className="App">
 
@@ -86,16 +83,17 @@ export default class App extends Component {
       <div className="main-content">
         <div className="estimate-block">
           <EstimateBlock 
-            value={finalCost} 
+            value={this.calculateTotalPrice()} 
             scrollProgress={scrollProgress}/>
         </div>
 
         <div className="evaluation-topics">
           <EvaluationTopics 
-            handleCardClick={this.handleCardClick} 
             setScrollProgress={this.setScrollProgress}
             idChoseQuality={idChoseQuality}
+            topicsPrices={topicsPrices}
             handleQualityChoose={this.handleQualityChoose}
+            calculateTopicPrice={this.calculateTopicPrice}
             />
         </div>
       </div>

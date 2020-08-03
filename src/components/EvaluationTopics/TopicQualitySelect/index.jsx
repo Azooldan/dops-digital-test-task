@@ -1,7 +1,7 @@
 import React, { Component  } from "react";
 import './style.css';
 
-export default class TopicImages extends Component {
+export default class TopicQualitySelect extends Component {
   constructor(props) {
     super(props);
     this.state = {

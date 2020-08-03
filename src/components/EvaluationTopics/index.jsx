@@ -3,14 +3,15 @@ import './style.css';
 import TopicHeader from './TopicHeader';
 import TopicCard from './TopicCard';
 import TopicSlider from './TopicSlider';
-import TopicImages from "./TopicImages";
+import TopicQualitySelect from "./TopicQualitySelect";
 
 
 export default class EvaluationTopics extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      topicsWasScrolled: []
+      topicsWasScrolled: [],
+      topicsPrices: this.props.topicsPrices
     }
   }
 
@@ -68,7 +69,7 @@ export default class EvaluationTopics extends Component {
   }
 
   render() {
-    const { handleCardClick, handleQualityChoose, idChoseQuality} = this.props;
+    const { handleCardClick, handleQualityChoose, idChoseQuality, calculateTopicPrice} = this.props;
     
     return(
       <div>
@@ -82,7 +83,7 @@ export default class EvaluationTopics extends Component {
                 ? <div className='topic-quality-container'>
                   {
                     topic.images.map((image, i) => 
-                        <TopicImages 
+                        <TopicQualitySelect 
                           key={i} 
                           image={image} 
                           topic={topic} 
@@ -99,14 +100,13 @@ export default class EvaluationTopics extends Component {
                         key={i} 
                         card={card} 
                         topic={topic} 
-                        handleCardClick={handleCardClick}/>
+                        calculateTopicPrice={calculateTopicPrice}/>
                     ) 
                   : topic.hasOwnProperty('slider') 
                   ? <TopicSlider 
                       key={i} 
                       slider={topic.slider} 
-                      topic={topic} 
-                      handleCardClick={handleCardClick}/>
+                      topic={topic}/>
                   : null
                 }
               </div>
