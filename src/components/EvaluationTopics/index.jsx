@@ -68,7 +68,7 @@ export default class EvaluationTopics extends Component {
   }
 
   render() {
-    const { handleCardClick } = this.props;
+    const { handleCardClick, handleQualityChoose, idChoseQuality} = this.props;
     
     return(
       <div>
@@ -86,7 +86,8 @@ export default class EvaluationTopics extends Component {
                           key={i} 
                           image={image} 
                           topic={topic} 
-                          handleCardClick={handleCardClick}/>
+                          handleQualityChoose={handleQualityChoose}
+                          idChoseQuality={idChoseQuality}/>
                       )
                   }
                 </div> 
@@ -226,16 +227,22 @@ const topics = [{
   "text": "Choose Quality",
   "images": [
     {
+      "id": "1",
       "url": "img/apple.svg",
-      "text": "Acceptable Quality"
+      "text": "Acceptable Quality",
+      "price": "500"
     },
     {
+      "id": "2",
       "url": "img/cherries.svg",
-      "text": "Appropriate Quality"
+      "text": "Appropriate Quality",
+      "price": "1000"
     },
     {
+      "id": "3",
       "url": "img/soft--ice--cream.svg",
-      "text": "Premium Quality"
+      "text": "Premium Quality",
+      "price": "1500"
     },
   ]
 },

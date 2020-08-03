@@ -12,7 +12,9 @@ export default class App extends Component {
     this.state = {
       estimatedCost: 0,
       selectedTopics: [],
-      scrollProgress: 0
+      scrollProgress: 0,
+      idChoseQuality: null,
+      qualityPrice: 0
     }
   }
 
@@ -20,7 +22,13 @@ export default class App extends Component {
     this.changeEstimationValue(card, topic, isChecked);
     this.setCheckedTopics(topic, isChecked);
   }
-
+  
+  handleQualityChoose = (image) => {
+    this.setState({
+        idChoseQuality: image.id,
+        qualityPrice: image.price
+    })
+  }
   setCheckedTopics = (topic, isChecked) => {
     
     // this.setState( ({selectedTopics}) => {
@@ -50,10 +58,10 @@ export default class App extends Component {
     })
   }
 
-  changeEstimationValue = (card, topic, isChecked) => {
-    this.setState( ({estimatedCost}) => {
+  changeEstimationValue = (card, isChecked) => {
+    this.setState( ({estimatedCost, qualityPrice}) => {
       // calculating estimation value depends on card was checked or uncheked
-      const valueToSet = isChecked ? estimatedCost += parseInt(card.price) : estimatedCost -= parseInt(card.price);
+      let valueToSet = isChecked ? estimatedCost += parseInt(card.price) : estimatedCost -= parseInt(card.price);
       return{
         estimatedCost: valueToSet
       }
@@ -61,8 +69,9 @@ export default class App extends Component {
   }
 
   render() {
-    const { estimatedCost, scrollProgress } = this.state;
-    
+    const { estimatedCost, scrollProgress, idChoseQuality, qualityPrice } = this.state;
+    const finalCost = estimatedCost + parseInt(qualityPrice);
+
     return(
       <div className="App">
 
@@ -76,11 +85,18 @@ export default class App extends Component {
 
       <div className="main-content">
         <div className="estimate-block">
-          <EstimateBlock value={estimatedCost} scrollProgress={scrollProgress}/>
+          <EstimateBlock 
+            value={finalCost} 
+            scrollProgress={scrollProgress}/>
         </div>
 
         <div className="evaluation-topics">
-          <EvaluationTopics handleCardClick={this.handleCardClick} setScrollProgress={this.setScrollProgress}/>
+          <EvaluationTopics 
+            handleCardClick={this.handleCardClick} 
+            setScrollProgress={this.setScrollProgress}
+            idChoseQuality={idChoseQuality}
+            handleQualityChoose={this.handleQualityChoose}
+            />
         </div>
       </div>
 

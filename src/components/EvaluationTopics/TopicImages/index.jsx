@@ -5,33 +5,22 @@ export default class TopicImages extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: false
     }
   }
 
-  handleClick = () => {
-    const { card, topic} = this.state;
-    console.log('dsfdsf')
-    this.setState( ({checked}) => {
-      return{
-        checked: !checked
-      }
-    });
-
-    // pass !checked value for calculating total cost
-    //this.props.handleCardClick(card, topic, !checked);
+  handleClick = (image) => {    
+    this.props.handleQualityChoose(image);
   }
 
   render() {
-    const { image } = this.props;
-    const { checked } = this.state;
-    
+    const { image, idChoseQuality } = this.props;
+
     return(
-      <div className='topic-quality-item' onClick={() => this.handleClick()}>
+      <div className='topic-quality-item' onClick={() => this.handleClick(image)}>
           <img src={image.url} alt={image.text} className='topic-quality-image'/>
 
           <div className='image-checkbox'>
-            <div className={`${checked ? 'card-circle card-circle-active' : 'card-circle'}`}></div>
+            <div className={`${idChoseQuality == image.id ? 'card-circle card-circle-active' : 'card-circle'}`}></div>
             <span>{image.text}</span>
           </div>
       </div>
