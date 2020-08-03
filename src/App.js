@@ -4,6 +4,7 @@ import Logo from './components/Logo';
 import MainText from './components/MainText';
 import EstimateBlock from './components/EstimateBlock';
 import EvaluationTopics from './components/EvaluationTopics';
+import Footer from './components/Footer';
 
 export default class App extends Component {
   constructor(props) {
@@ -81,6 +82,10 @@ export default class App extends Component {
         <div className="evaluation-topics">
           <EvaluationTopics handleCardClick={this.handleCardClick} setScrollProgress={this.setScrollProgress}/>
         </div>
+      </div>
+
+      <div>
+        <Footer/>
       </div>
 
       </div>
