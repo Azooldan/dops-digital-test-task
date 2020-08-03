@@ -3,6 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <link href="//db.onlinewebfonts.com/c/23255fa3ff7a89589800cea3092f154f?family=NB+International" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("user_q4IAVLx18FdIYoppVT6CZ");
+       })();
+    </script>
+    <script type="text/javascript">
+      window.onload = function() {
+          document.getElementById('contact-form').addEventListener('submit', function(event) {
+              event.preventDefault();
+              const service_id = "default_service";
+              const template_id = "template_BuxPopLn";
+
+              emailjs.sendForm(service_id, template_id, this)
+                .then(function(){
+                  swal("Good job!", "We will reply you soon!", "success", {
+                    buttons: false,
+                    timer: 1500,
+                  });
+                }, function(err) {
+                  console.log(err)
+                });
+              return false;
+          });
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta

@@ -7,9 +7,13 @@ export default class EstimateBlock extends Component {
     super(props);
 
     this.state = {
-      inputText: ''
+      inputText: '',
+      isSubmitDisabled: 'disabled'
     }
 
+  }
+
+  componentDidMount() {
   }
 
   handleChange = (e) => {
@@ -18,31 +22,12 @@ export default class EstimateBlock extends Component {
     });
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    //this.sendEmail();
-  }
-
-  sendEmail = async ( ) => {    
-    const { email } = this.state;
-    console.log(email)
-    const res = await fetch('/src/api/send.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(email)
-    })
-    const text = await res.text();
-    console.log(text)
-  }
-
-
   render() {
-    const { value, inputText, scrollProgress, topicsPrices } = this.props;
+    const { value, inputText, scrollProgress, topicsPrices, isSubmitDisabled } = this.props;
 
     return(
       <div className='estimate-block-container'>
+
         <div className='estimate-cost'>
           <span className='estimate-cost-text'>Estimate Cost</span>
           <span className='estimate-cost-price'>${value}</span>
@@ -56,22 +41,24 @@ export default class EstimateBlock extends Component {
         </div>
 
         <div className='contact-form'>
-          <form>
+          <form id='contact-form' method="post">
             <input 
               className='contact-form-input' 
               type="email" 
+              name="from_name"
               placeholder='E-mail' 
               value={inputText} 
               onChange={this.handleChange} 
               autoComplete="off"
             />
             <br/>
-            <input 
+            <button 
               className='contact-form-submit' 
               type="submit" 
               onClick={this.handleSubmit} 
-              value="Submit"
-            />
+              disabled="false">
+                Submit
+            </button>
           </form>
         </div>
 
