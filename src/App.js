@@ -5,6 +5,7 @@ import MainText from './components/MainText';
 import EstimateBlock from './components/EstimateBlock';
 import EvaluationTopics from './components/EvaluationTopics';
 import Footer from './components/Footer';
+import Comments from './components/Comments';
 
 export default class App extends Component {
   constructor(props) {
@@ -101,12 +102,18 @@ export default class App extends Component {
             handleQualityChoose={this.handleQualityChoose}
             calculateTopicPrice={this.calculateTopicPrice}
             />
+        <div className='comments'>
+          <Comments/>
         </div>
+        </div>
+
+        
       </div>
 
-      <div>
-        <Footer/>
-      </div>
+
+        <div>
+          <Footer/>
+        </div>
 
       </div>
     )

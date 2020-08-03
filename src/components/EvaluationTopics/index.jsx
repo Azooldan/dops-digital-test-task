@@ -77,39 +77,46 @@ export default class EvaluationTopics extends Component {
           topics.map((topic, i) =>
             <div key={i} className='topic-element' id={`topic-${topic.id}`}>
               <TopicHeader topic={topic}/>
-
               {
                 topic.hasOwnProperty('images') 
                 ? <div className='topic-quality-container'>
                   {
                     topic.images.map((image, i) => 
-                        <TopicQualitySelect 
-                          key={i} 
-                          image={image} 
-                          topic={topic} 
-                          handleQualityChoose={handleQualityChoose}
-                          idChoseQuality={idChoseQuality}/>
+                      <TopicQualitySelect 
+                        key={i} 
+                        image={image} 
+                        topic={topic} 
+                        handleQualityChoose={handleQualityChoose}
+                        idChoseQuality={idChoseQuality}/>
                       )
                   }
                 </div> 
-                : <div className='topic-cards'>
-                {
-                  topic.hasOwnProperty('cards') 
-                  ? topic.cards.map((card, i) => 
-                      <TopicCard 
-                        key={i} 
-                        card={card} 
-                        topic={topic} 
-                        calculateTopicPrice={calculateTopicPrice}/>
-                    ) 
-                  : topic.hasOwnProperty('slider') 
-                  ? <TopicSlider 
-                      key={i} 
-                      slider={topic.slider} 
-                      topic={topic}/>
-                  : null
-                }
-              </div>
+
+                : topic.hasOwnProperty('cards') 
+                ? <div className='topic-cards'>
+                    {
+                      topic.cards.map((card, i) => 
+                        <TopicCard 
+                          key={i} 
+                          card={card} 
+                          topic={topic} 
+                          calculateTopicPrice={calculateTopicPrice}/>
+                      ) 
+                    }
+                  </div>
+                : topic.hasOwnProperty('slider')
+                ? <div className='topic-slider'>
+                     {/* <TopicSlider 
+                        defaultValue={20}
+                        aria-label="slider"
+                        step={5}
+                        min={5}
+                        max={40}
+                        valueLabelDisplay="off"
+                        marks={topic.slider}
+                        />  */}
+                  </div>
+                : null
               }
             </div> 
           )
@@ -205,20 +212,68 @@ const topics = [{
   "number": "3",
   "title": "Duration",
   "text": "Find a time that suits your animation idea.",
-  "slider" : {
-    "values": ['5', '10', '15', '20', '25', '30', '35', '40'],
-    "prices": ['50', '100', '150', '200', '250', '300', '350', '400'],
-  }
+  "slider" : [
+    {
+      "value": "50", 
+      "label": "5"
+    },
+    {
+      "value": "100", 
+      "label": "10"
+    },
+    {
+      "value": "150", 
+      "label": "15"
+    },
+    {
+      "value": "200", 
+      "label": "20"
+    },
+    {
+      "value": "250", 
+      "label": "25"
+    },
+    {
+      "value": "300", 
+      "label": "30"
+    },
+    {
+      "value": "350", 
+      "label": "35"
+    },
+    {
+      "value": "40", 
+      "label": "40"
+    }
+  ]
 },
 {
   "id": "4",
   "number": "4",
   "title": "Timeframe",
   "text": "Do you have a particular time frame in mind?",
-  "slider" : {
-    "values": ['Anytime', '16 weeks', '8 weeks', '4 weeks', 'ASAP'],
-    "prices": ['50', '100', '150', '200', '250'],
-  }
+  "slider" : [
+    {
+      "value": "50", 
+      "label": "Anytime"
+    },
+    {
+      "value": "100", 
+      "label": "16 weeks"
+    },
+    {
+      "value": "150", 
+      "label": "8 weeks"
+    },
+    {
+      "value": "200", 
+      "label": "4 weeks"
+    },
+    {
+      "value": "25", 
+      "label": "ASAP"
+    },
+  ]
 },
 {
   "id": "5",
