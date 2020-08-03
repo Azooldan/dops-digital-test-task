@@ -78,38 +78,38 @@ export default class App extends Component {
     return(
       <div className="App">
 
-      <div className="logo">
-        <Logo />
-      </div>
-
-      <div className="main-text">
-        <MainText />
-      </div>
-
-      <div className="main-content">
-        <div className="estimate-block">
-          <EstimateBlock 
-            value={this.calculateTotalPrice()} 
-            scrollProgress={scrollProgress}
-            topicsPrices={topicsPrices}/>
+        <div className="logo">
+          <Logo />
         </div>
 
-        <div className="evaluation-topics">
-          <EvaluationTopics 
-            setScrollProgress={this.setScrollProgress}
-            idChoseQuality={idChoseQuality}
-            topicsPrices={topicsPrices}
-            handleQualityChoose={this.handleQualityChoose}
-            calculateTopicPrice={this.calculateTopicPrice}
-            />
-        <div className='comments'>
-          <Comments/>
-        </div>
+        <div className="main-text">
+          <MainText />
         </div>
 
-        
-      </div>
+        <div className="main-content">
 
+          <div className="estimate-block">
+            <EstimateBlock 
+              value={this.calculateTotalPrice()} 
+              scrollProgress={scrollProgress}
+              topicsPrices={topicsPrices}/>
+          </div>
+
+          <div className="evaluation-topics">
+            <EvaluationTopics 
+              setScrollProgress={this.setScrollProgress}
+              idChoseQuality={idChoseQuality}
+              topicsPrices={topicsPrices}
+              handleQualityChoose={this.handleQualityChoose}
+              calculateTopicPrice={this.calculateTopicPrice}
+              />
+
+            <div className='comments'>
+              <Comments/>
+            </div>
+            
+          </div>          
+        </div>
 
         <div>
           <Footer/>

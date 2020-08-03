@@ -6,20 +6,24 @@
   text-align: left;
 }
 
+.main-text-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .col-1-text {
   color: white;
   font-size: 49px;
   line-height: 42px;
-  width: 40%
 }
 
 .col-2-text {
-  width: 16%;
-  padding-right: 10%;
+  width: 60%;
+  margin: auto
 }
 
 .col-3-text {
-  width: 24%
+  width: 80%
 }
 
 .col-2-text, .col-3-text  {
