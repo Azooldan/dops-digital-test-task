@@ -10,19 +10,17 @@ export default class EstimateBlock extends Component {
       inputText: ''
     }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({
       inputText: e.target.value
     });
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.sendEmail();
+    //this.sendEmail();
   }
 
   sendEmail = async ( ) => {    
@@ -41,7 +39,7 @@ export default class EstimateBlock extends Component {
 
 
   render() {
-    const { value, inputText, scrollProgress } = this.props;
+    const { value, inputText, scrollProgress, topicsPrices } = this.props;
 
     return(
       <div className='estimate-block-container'>
@@ -52,7 +50,9 @@ export default class EstimateBlock extends Component {
         </div>
 
         <div className='progress-line'>
-          <ProgressBar completed={scrollProgress} />
+          <ProgressBar 
+            completed={scrollProgress} 
+            topicsPrices={topicsPrices}/>
         </div>
 
         <div className='contact-form'>

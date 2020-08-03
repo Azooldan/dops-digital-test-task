@@ -8,15 +8,15 @@ export default class TopicQualitySelect extends Component {
     }
   }
 
-  handleClick = (image) => {    
-    this.props.handleQualityChoose(image);
+  handleClick = (topic, image) => {    
+    this.props.handleQualityChoose(topic, image);
   }
 
   render() {
-    const { image, idChoseQuality } = this.props;
+    const { image, idChoseQuality, topic } = this.props;
 
     return(
-      <div className='topic-quality-item' onClick={() => this.handleClick(image)}>
+      <div className='topic-quality-item' onClick={() => this.handleClick(topic, image)}>
           <img src={image.url} alt={image.text} className='topic-quality-image'/>
 
           <div className='image-checkbox'>

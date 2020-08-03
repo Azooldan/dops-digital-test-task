@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProgressBar = (props) => {
-  const { completed } = props;
+  const { completed, topicsPrices } = props;
 
   const grayLineContainer = {
     height: 1,
@@ -29,7 +29,7 @@ const ProgressBar = (props) => {
     transform: 'translate(0, -11px)',
     backgroundColor: "#1B1B1B",
     border: '1px solid #7B7B7B',
-    transition: 'all 0.6s ease-out',
+    transition: 'all 0.6s ease',
   }
 
   const dotMarked = {
@@ -40,6 +40,7 @@ const ProgressBar = (props) => {
     transform: 'translate(0, -11px)',
     backgroundColor: "#674BB1",
     border: '1px solid #674BB1',
+    transition: 'all 0.6s ease',
     
   }
   
@@ -63,22 +64,22 @@ const ProgressBar = (props) => {
       
       <div style={dotContainer}>
         
-        <span style={dotUnmarked}>
+        <span style={topicsPrices[1] === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>1</span>
         </span>
-        <span style={ dotUnmarked}>
+        <span style={topicsPrices[2] === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>2</span>
         </span>
-        <span style={ dotUnmarked}>
+        <span style={topicsPrices[3] === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>3</span>
         </span>
-        <span style={ dotUnmarked}>
+        <span style={topicsPrices[4] === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>4</span>
         </span>
-        <span style={ dotUnmarked}>
+        <span style={topicsPrices[5] === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>5</span>
         </span>
-        <span style={ dotUnmarked}>
+        <span style={topicsPrices[6] === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>6</span>
         </span>
 

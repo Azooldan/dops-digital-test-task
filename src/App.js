@@ -20,7 +20,6 @@ export default class App extends Component {
 
     this.state = {
       estimatedCost: 0,
-      selectedTopics: [],
       scrollProgress: 0,
       idChoseQuality: null,
       qualityPrice: 0,
@@ -28,21 +27,27 @@ export default class App extends Component {
     }
   }
   
-  handleQualityChoose = (image) => {
-    this.setState({
+  handleQualityChoose = (topic, image) => {
+    this.setState(prevState => {      
+      return {
         idChoseQuality: image.id,
-        qualityPrice: image.price
+        topicsPrices: {                    
+          ...prevState.topicsPrices,               
+          [topic.id]: parseInt(image.price)    
+        }
+      }
     })
+    this.calculateTotalPrice();
   }
 
   calculateTopicPrice = (topic, item, checked) => {
     this.setState(prevState => {
-      const valueToSet = !checked ? parseInt(-item.price) : parseInt(item.price);
+      const valueToSet = !checked ? prevState.topicsPrices[topic.id] + parseInt(-item.price) : prevState.topicsPrices[topic.id] + parseInt(item.price);
       
       return {
         topicsPrices: {                             // object that we want to update
           ...prevState.topicsPrices,                 // keep all other key-value pairs
-          [topic.id]: prevState.topicsPrices[topic.id] + valueToSet    // update the value of specific topic
+          [topic.id]: valueToSet    // update the value of specific topic
         }
       }
     })
@@ -84,7 +89,8 @@ export default class App extends Component {
         <div className="estimate-block">
           <EstimateBlock 
             value={this.calculateTotalPrice()} 
-            scrollProgress={scrollProgress}/>
+            scrollProgress={scrollProgress}
+            topicsPrices={topicsPrices}/>
         </div>
 
         <div className="evaluation-topics">
