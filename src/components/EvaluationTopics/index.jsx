@@ -75,24 +75,28 @@ export default class EvaluationTopics extends Component {
         {
           topics.map((topic, i) =>
             <div key={i} className='topic-element' id={`topic-${topic.id}`}>
-                {console.log(topic)}
               <TopicHeader topic={topic}/>
 
-              <div className='topic-cards'>
+              {
+                topic.hasOwnProperty('images') 
+                ? <div className='topic-quality-container'>
+                  {
+                    topic.images.map((image, i) => 
+                        <TopicImages 
+                          key={i} 
+                          image={image} 
+                          topic={topic} 
+                          handleCardClick={handleCardClick}/>
+                      )
+                  }
+                </div> 
+                : <div className='topic-cards'>
                 {
                   topic.hasOwnProperty('cards') 
                   ? topic.cards.map((card, i) => 
                       <TopicCard 
                         key={i} 
                         card={card} 
-                        topic={topic} 
-                        handleCardClick={handleCardClick}/>
-                    ) 
-                  : topic.hasOwnProperty('images') 
-                  ? topic.images.map((image, i) => 
-                      <TopicImages 
-                        key={i} 
-                        image={image} 
                         topic={topic} 
                         handleCardClick={handleCardClick}/>
                     ) 
@@ -105,7 +109,7 @@ export default class EvaluationTopics extends Component {
                   : null
                 }
               </div>
-
+              }
             </div> 
           )
         }
@@ -222,16 +226,16 @@ const topics = [{
   "text": "Choose Quality",
   "images": [
     {
-      "url": "",
-      "text": ""
+      "url": "img/apple.svg",
+      "text": "Acceptable Quality"
     },
     {
-      "url": "",
-      "text": ""
+      "url": "img/cherries.svg",
+      "text": "Appropriate Quality"
     },
     {
-      "url": "",
-      "text": ""
+      "url": "img/soft--ice--cream.svg",
+      "text": "Premium Quality"
     },
   ]
 },

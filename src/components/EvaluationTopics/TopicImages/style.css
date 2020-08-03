@@ -1,11 +1,16 @@
-.evaluation-topics {
-  width: 100%
+
+.topic-quality-image {
+  float: left;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.topic-cards {
+.topic-quality-item {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-template-rows: 1fr;
 }
-.topic-element {
-  margin-bottom: 50px;
+.image-checkbox {
+  text-align: start;
+  color: #7B7B7B;
+  display: flex;
+  margin-top: 20px;
 }

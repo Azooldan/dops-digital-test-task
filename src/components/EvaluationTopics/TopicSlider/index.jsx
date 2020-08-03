@@ -14,8 +14,8 @@ export default class TopicSlider extends Component {
 
     return(
       <div>
-        <input type="range" id="cowbell" name="cowbell" min="0" max={numberOfSliderPositions-1} list="sliderticks" step="1" class="slider"/>
-        <datalist class="sliderticks">
+        <input type="range" id="cowbell" name="cowbell" min="0" max={numberOfSliderPositions-1} list="sliderticks" step="1" className="slider"/>
+        <datalist className="sliderticks">
           {
             slider.values.map((value, i) =>  <p  label={value}/> )
           }

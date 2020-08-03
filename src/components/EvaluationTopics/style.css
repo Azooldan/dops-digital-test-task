@@ -9,3 +9,8 @@
 .topic-element {
   margin-bottom: 50px;
 }
+.topic-quality-container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
