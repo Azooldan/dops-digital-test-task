@@ -1,4 +1,3 @@
-@import url(//db.onlinewebfonts.com/c/23255fa3ff7a89589800cea3092f154f?family=NB+International);
 
 .App {
   text-align: center;
@@ -24,7 +23,7 @@
 .estimate-block {
   width: 45%;
   margin-right: 40px;
-  padding-bottom: 6.4%;
+  padding-bottom: 7.2%;
 }
 .estimate-block-for-mobile {
   display: none;

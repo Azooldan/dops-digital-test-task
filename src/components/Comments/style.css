@@ -20,9 +20,9 @@
 }
 .comments-count-btn-label {
   color: #494949;
-  text-align: center;
-  vertical-align: middle;
   margin-left: 10px;
+  float: left;
+  margin-top: 7px;
 }
 .comments-form-submit {
   min-width: 15%;
@@ -31,6 +31,7 @@
   border-radius: 4px;
   border: none;
   color: white;
+  float: left;
 }
 .comment-container {
   margin-bottom: 50px;

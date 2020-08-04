@@ -9,8 +9,10 @@
   height: 71px;
   width: 71px;
   border-radius: 50%;
-  display: inline-block;
   background-color: #674BB1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .topic-header-number {
@@ -20,7 +22,7 @@
 
 .topic-header-title, .topic-header-text {
   text-align: start;
-  max-width: 30%;
+  max-width: 25%;
 }
 
 .topic-header-title {
@@ -32,6 +34,8 @@
 .topic-header-text {
   font-size: 14px;
   color: #7B7B7B;
+  line-height: 21px;
+  margin: 5px 0;
 }
 
 @media (max-width:768px){

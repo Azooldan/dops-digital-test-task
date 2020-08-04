@@ -52,14 +52,16 @@ export default class TopicHeader extends Component {
 
             <br/>
 
-            <input 
-              className='comments-form-submit' 
-              type="submit" 
-              onClick={this.handleSubmit} 
-              value={wordsNumber}/>
+            <div className='count-btn'>
+              <input 
+                className='comments-form-submit' 
+                type="submit" 
+                onClick={this.handleSubmit} 
+                value={wordsNumber}/>
 
-            <span className='comments-count-btn-label'>Words</span>
-            
+              <span className='comments-count-btn-label'>Words</span>
+            </div>
+          
           </form>
 
         </div>

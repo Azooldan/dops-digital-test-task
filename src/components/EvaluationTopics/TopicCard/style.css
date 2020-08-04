@@ -20,6 +20,8 @@
 .card-text {
   color: white;
   font-size: 18px;
+  line-height: 31px;
+  margin-top: 5px;
 }
 
 .card-number {

@@ -1,5 +1,5 @@
 .footer-container {
-  padding-bottom: 40px;
+  padding-bottom: 30px;
 }
 
 .footer-logo {
@@ -83,6 +83,7 @@ a:hover, a:visited, a:link, a:active
 .footer-copyrights {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-top: 30px;
 }
 .navigation span, .social-media span {
   cursor: pointer;

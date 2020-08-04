@@ -15,15 +15,21 @@
   color: white;
   font-size: 49px;
   line-height: 42px;
+  letter-spacing: -1.47px;
 }
 
 .col-2-text {
-  width: 60%;
-  margin: auto
+  width: 50%;
+  margin: auto;
+  line-height: 21px;
+  letter-spacing: 0;
 }
 
 .col-3-text {
-  width: 80%
+  width: 70%;
+  line-height: 21px;
+  letter-spacing: 0;
+  font-weight: lighter;
 }
 
 .col-2-text, .col-3-text  {

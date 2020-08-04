@@ -21,6 +21,7 @@
 .estimate-cost-price {
   color: white;
   font-size: 45px;
+  margin: 15px 0;
 }
 
 .estimate-cost-line {
@@ -57,6 +58,15 @@
   font-weight: 100;
   letter-spacing: 2px;
 }
+
+.count-btn {
+  margin-top: 10px;
+}
+
+.contact-form-input::placeholder {
+  opacity: 0.5;
+}
+
 .contact-form-submit {
   width: 100%;
   height: 40px;
