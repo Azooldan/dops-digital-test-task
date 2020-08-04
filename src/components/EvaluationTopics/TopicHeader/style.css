@@ -41,6 +41,10 @@
 @media (max-width:768px){
   .topic-header-title, .topic-header-text {
     max-width: 70%;
+    
   }
 
+  .topic-header {
+    margin-left: 0;
+  }
 }

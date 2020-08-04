@@ -88,3 +88,9 @@ a:hover, a:visited, a:link, a:active
 .navigation span, .social-media span {
   cursor: pointer;
 }
+
+@media (max-width: 768px){
+  textarea {
+    height: 7em;
+  }
+}

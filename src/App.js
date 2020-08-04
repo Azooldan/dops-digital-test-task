@@ -136,14 +136,6 @@ export default class App extends Component {
               handleSliderChange={this.handleSliderChange}
               />
 
-            <div className="estimate-block-for-mobile">
-              <EstimateBlock 
-                value={this.calculateTotalPrice()} 
-                scrollProgress={scrollProgress}
-                topicsPrices={topicsPrices}
-                isAllOptionsChecked={this.checkIfAllTopicsChecked()}/>
-            </div>
-
             <div className='comments'>
               <Comments/>
             </div>

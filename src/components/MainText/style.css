@@ -4,9 +4,6 @@
   align-items: center;
   margin: auto;
   text-align: left;
-}
-
-.main-text-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -54,5 +51,27 @@
   .col-2-text, .col-3-text  {
     font-size: 14px;
     line-height: 21px;
+  }
+}
+
+@media (max-width: 640px) { 
+  .main-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .col-1-text {
+    width: 80%;
+    align-items: flex-start;
+  }
+  .col-2-text {
+    width: 80%;
+    margin-left: 5%;
+  }
+  
+  .col-3-text {
+    width: 80%;
+    float: right;
+    margin-left: 10%;
   }
 }
