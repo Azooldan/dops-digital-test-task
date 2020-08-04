@@ -73,7 +73,7 @@ export default class EvaluationTopics extends Component {
   }
 
   render() {
-    const { handleQualityChoose, idChoseQuality, calculateTopicPrice } = this.props;
+    const { handleQualityChoose, handleTopicSelect, topicsPrices } = this.props;
     
     return(
       <div>
@@ -91,7 +91,7 @@ export default class EvaluationTopics extends Component {
                         image={image} 
                         topic={topic} 
                         handleQualityChoose={handleQualityChoose}
-                        idChoseQuality={idChoseQuality}/>
+                        topicsPrices={topicsPrices}/>
                       )
                   }
                 </div> 
@@ -104,7 +104,8 @@ export default class EvaluationTopics extends Component {
                           key={i} 
                           card={card} 
                           topic={topic} 
-                          calculateTopicPrice={calculateTopicPrice}/>
+                          topicsPrices={topicsPrices}
+                          handleTopicSelect={handleTopicSelect}/>
                       ) 
                     }
                   </div>
@@ -132,88 +133,101 @@ export default class EvaluationTopics extends Component {
 }
 
 const topics = [{
-  "id": "1",
+  "id": 1,
   "number": "1",
   "title": "Choose the medium",
   "text": "Find out the difference in our examples by hovering the cursor.",
   "cards" : [
     {
+      "id": 1,
       "cardNumber": "1.0",
-      "price": "500",
+      "price": 500,
       "cardText": "3D Animation",
     },
     {
+      "id": 2,
       "cardNumber": "2.0",
-      "price": "500",
+      "price": 500,
       "cardText": "2D Animation",
     },
     {
+      "id": 3,
       "cardNumber": "3.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Editing / Motion Graphics",
     },
     {
+      "id": 4,
       "cardNumber": "4.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Live Action Production",
     },
     {
+      "id": 5,
       "cardNumber": "5.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Foreign Language",
     },
     {
+      "id": 6,
       "cardNumber": "6.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Characters",
     },
     {
+      "id": 7,
       "cardNumber": "7.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Style hybrid",
     }
   ]
 },
 {
-  "id": "2",
+  "id": 2,
   "number": "2",
   "title": "Choose the style",
   "text": "How does the price change? Some styles take more time to produce = higher price.",
   "cards" : [
     {
+      "id": 1,
       "cardNumber": "1.0",
-      "price": "500",
+      "price": 500,
       "cardText": "3D Visualisation",
     },
     {
+      "id": 2,
       "cardNumber": "2.0",
-      "price": "500",
+      "price": 500,
       "cardText": "3D Cartoon",
     },
     {
+      "id": 3,
       "cardNumber": "3.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Realistic Character Animation",
     },
     {
+      "id": 4,
       "cardNumber": "4.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Technical Visualisation",
     },
     {
+      "id": 5,
       "cardNumber": "5.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Robotic Character integration",
     },
     {
+      "id": 6,
       "cardNumber": "6.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Creature VFX",
     }
   ]
 },
 {
-  "id": "3",
+  "id": 3,
   "number": "3",
   "title": "Duration",
   "text": "Find a time that suits your animation idea.",
@@ -253,7 +267,7 @@ const topics = [{
   ]
 },
 {
-  "id": "4",
+  "id": 4,
   "number": "4",
   "title": "Timeframe",
   "text": "Do you have a particular time frame in mind?",
@@ -281,55 +295,59 @@ const topics = [{
   ]
 },
 {
-  "id": "5",
+  "id": 5,
   "number": "5",
   "title": "Production Quality",
   "text": "Choose Quality",
   "images": [
     {
-      "id": "1",
+      "id": 1,
       "url": "img/apple.svg",
       "text": "Acceptable Quality",
-      "price": "500"
+      "price": 500
     },
     {
-      "id": "2",
+      "id": 2,
       "url": "img/cherries.svg",
       "text": "Appropriate Quality",
-      "price": "1000"
+      "price": 1000
     },
     {
-      "id": "3",
+      "id": 3,
       "url": "img/soft--ice--cream.svg",
       "text": "Premium Quality",
-      "price": "1500"
+      "price": 1500
     },
   ]
 },
-{"id": "6",
+{"id": 6,
   
   "number": "6",
   "title": "Additional Options",
   "text": "Choose Additional Options",
   "cards" : [
     {
+      "id": 1,
       "cardNumber": "1.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Music Track",
     },
     {
+      "id": 2,
       "cardNumber": "2.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Sound Effects",
     },
     {
+      "id": 3,
       "cardNumber": "3.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Voiceover",
     },
     {
+      "id": 4,
       "cardNumber": "4.0",
-      "price": "500",
+      "price": 500,
       "cardText": "Storyboard",
     }
   ]

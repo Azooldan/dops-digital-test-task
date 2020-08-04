@@ -11,60 +11,61 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     const topicsPrices = {
-      '1': 0,
-      '2': 0,
-      '3': 0,
-      '4': 0,
-      '5': 0,
-      '6': 0,
+      '1': { selectedId: null, value: 0},
+      '2': { selectedId: null, value: 0},
+      '3': { selectedId: null, value: 0},
+      '4': { selectedId: null, value: 0},
+      '5': { selectedId: null, value: 0},
+      '6': { selectedId: null, value: 0},
     }
 
     this.state = {
-      estimatedCost: 0,
       scrollProgress: 0,
       idChoseQuality: null,
-      qualityPrice: 0,
       topicsPrices: topicsPrices,
       isAllOptionsChecked: false
     }
   }
   
   handleQualityChoose = (topic, image) => {
-    this.setState(prevState => {      
-      return {
-        idChoseQuality: image.id,
-        topicsPrices: {                    
-          ...prevState.topicsPrices,               
-          [topic.id]: parseInt(image.price)    
-        }
+    this.setState(prevState => ({
+      topicsPrices: {
+          ...prevState.topicsPrices,
+          [topic.id]: {
+              selectedId: image.id,
+              value: image.price
+          }
       }
-    })
+    }))
+
     this.calculateTotalPrice();
   }
 
   handleSliderChange = (value, topicId) => {
-    this.setState(prevState => {      
-      return {
-        topicsPrices: {                    
-          ...prevState.topicsPrices,               
-          [topicId]: parseInt(value)    
-        }
+    this.setState(prevState => ({
+      topicsPrices: {
+          ...prevState.topicsPrices,
+          [topicId]: {
+              selectedId: null,
+              value: value
+          }
       }
-    })
+    }))
+
     this.calculateTotalPrice();
   }
 
-  calculateTopicPrice = (topic, item, checked) => {
-    this.setState(prevState => {
-      const valueToSet = !checked ? prevState.topicsPrices[topic.id] + parseInt(-item.price) : prevState.topicsPrices[topic.id] + parseInt(item.price);
-      
-      return {
-        topicsPrices: {                             // object that we want to update
-          ...prevState.topicsPrices,                 // keep all other key-value pairs
-          [topic.id]: valueToSet    // update the value of specific topic
-        }
+  handleTopicSelect = (value, topicId, itemId) => {
+    this.setState(prevState => ({
+      topicsPrices: {
+          ...prevState.topicsPrices,
+          [topicId]: {
+              selectedId: itemId,
+              value: value
+          }
       }
-    })
+    }))
+
     this.calculateTotalPrice();
   }
 
@@ -75,17 +76,16 @@ export default class App extends Component {
   }
 
   calculateTotalPrice = () => {
-    const { estimatedCost, qualityPrice, topicsPrices } = this.state;
-    let finalCost = estimatedCost + parseInt(qualityPrice);
+    const { topicsPrices } = this.state;
+    let finalCost = 0;
     
-    let topicsCost = 0;
     for (let i = 1; i < 7; i++) {
-      topicsCost += topicsPrices[i]
+      finalCost += topicsPrices[i].value
     }
 
     this.checkIfAllTopicsChecked();
 
-    return topicsCost + finalCost;
+    return finalCost;
   }
 
   checkIfAllTopicsChecked = () => {
@@ -93,7 +93,7 @@ export default class App extends Component {
     var isAllChecked = true;
 
     for (let i = 1; i < 7; i++) {
-      if(topicsPrices[i] == 0) {
+      if(topicsPrices[i].value == 0) {
         isAllChecked = false;
         break;
       }
@@ -104,7 +104,7 @@ export default class App extends Component {
   
   render() {
     const { scrollProgress, idChoseQuality, topicsPrices } = this.state;
-
+    
     return(
       <div className="App">
         
@@ -129,10 +129,10 @@ export default class App extends Component {
           <div className="evaluation-topics">
             <EvaluationTopics 
               setScrollProgress={this.setScrollProgress}
-              idChoseQuality={idChoseQuality}
+              idChoseQuality={topicsPrices}
               topicsPrices={topicsPrices}
               handleQualityChoose={this.handleQualityChoose}
-              calculateTopicPrice={this.calculateTopicPrice}
+              handleTopicSelect={this.handleTopicSelect}
               handleSliderChange={this.handleSliderChange}
               />
 

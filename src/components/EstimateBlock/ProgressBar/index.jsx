@@ -64,22 +64,22 @@ const ProgressBar = (props) => {
       
       <div style={dotContainer}>
         
-        <span style={topicsPrices[1] === 0 ? dotUnmarked : dotMarked}>
+        <span style={topicsPrices[1].value === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>1</span>
         </span>
-        <span style={topicsPrices[2] === 0 ? dotUnmarked : dotMarked}>
+        <span style={topicsPrices[2].value === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>2</span>
         </span>
-        <span style={topicsPrices[3] === 0 ? dotUnmarked : dotMarked}>
+        <span style={topicsPrices[3].value === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>3</span>
         </span>
-        <span style={topicsPrices[4] === 0 ? dotUnmarked : dotMarked}>
+        <span style={topicsPrices[4].value === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>4</span>
         </span>
-        <span style={topicsPrices[5] === 0 ? dotUnmarked : dotMarked}>
+        <span style={topicsPrices[5].value === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>5</span>
         </span>
-        <span style={topicsPrices[6] === 0 ? dotUnmarked : dotMarked}>
+        <span style={topicsPrices[6].value === 0 ? dotUnmarked : dotMarked}>
           <span style={dotNumber}>6</span>
         </span>
 

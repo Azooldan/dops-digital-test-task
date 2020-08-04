@@ -7,32 +7,28 @@ export default class EvaluationTopics extends Component {
     this.state = {
       card: this.props.card,
       topic: this.props.topic,
-      checked: false
     }
   }
 
   handleClick = () => {
-    const { card, topic, checked} = this.state;
-    this.props.calculateTopicPrice(topic, card, !checked);
-    this.setState( ({checked}) => {
-      return{
-        checked: !checked
-      }
-    });
+    const { card, topic} = this.state;
+    
+    this.props.handleTopicSelect(card.price, topic.id, card.id);
   }
 
   render() {
-    const { card, checked, topic } = this.state;
+    const { card, topic } = this.state;
+    const { topicsPrices } = this.props;
     
     return(
-      <div className={`${checked ? 'card card-active' : 'card'}`} onClick={() => this.handleClick()}>
+      <div className={`${topicsPrices[topic.id].selectedId === card.id ? 'card card-active' : 'card'}`} onClick={() => this.handleClick()}>
 
         <div className='card-info-text'>
           <div className='card-number'>
             {card.cardNumber}
           </div>
           {
-            parseInt(topic.id) === 1 
+            topic.id === 1 
               ? <img src='img/on-hover-mage.png' className="card-image" alt="Animated card picture"/> 
               : null
           }
@@ -41,7 +37,7 @@ export default class EvaluationTopics extends Component {
           </div>
         </div>
 
-        <div className={`${checked ? 'card-circle card-circle-active' : 'card-circle'}`}></div>
+        <div className={`${topicsPrices[topic.id].selectedId === card.id ? 'card-circle card-circle-active' : 'card-circle'}`}></div>
 
       </div>
     );
