@@ -42,6 +42,18 @@ export default class App extends Component {
     this.calculateTotalPrice();
   }
 
+  handleSliderChange = (value, topicId) => {
+    this.setState(prevState => {      
+      return {
+        topicsPrices: {                    
+          ...prevState.topicsPrices,               
+          [topicId]: parseInt(value)    
+        }
+      }
+    })
+    this.calculateTotalPrice();
+  }
+
   calculateTopicPrice = (topic, item, checked) => {
     this.setState(prevState => {
       const valueToSet = !checked ? prevState.topicsPrices[topic.id] + parseInt(-item.price) : prevState.topicsPrices[topic.id] + parseInt(item.price);
@@ -121,6 +133,7 @@ export default class App extends Component {
               topicsPrices={topicsPrices}
               handleQualityChoose={this.handleQualityChoose}
               calculateTopicPrice={this.calculateTopicPrice}
+              handleSliderChange={this.handleSliderChange}
               />
 
             <div className="estimate-block-for-mobile">

@@ -11,7 +11,7 @@ export default class EvaluationTopics extends Component {
     super(props);
     this.state = {
       topicsWasScrolled: [],
-      topicsPrices: this.props.topicsPrices
+      topicsPrices: this.props.topicsPrices,
     }
   }
 
@@ -68,11 +68,13 @@ export default class EvaluationTopics extends Component {
     this.props.setScrollProgress(scrollProgress)
   }
 
+  sliderChangeHandler = (e, value, topicId) => {
+    this.props.handleSliderChange(value, topicId)
+  }
+
   render() {
-    const { handleCardClick, handleQualityChoose, idChoseQuality, calculateTopicPrice} = this.props;
-    topics.map((topic, i) => {
-      console.log(topic.slider)
-    })
+    const { handleQualityChoose, idChoseQuality, calculateTopicPrice } = this.props;
+    
     return(
       <div>
         {
@@ -109,13 +111,14 @@ export default class EvaluationTopics extends Component {
                 : topic.hasOwnProperty('slider')
                 ? <div className='topic-slider'>
                       <TopicSlider 
-                      defaultValue={topic.slider[0].value}
-                      aria-label="slider"
+                        defaultValue={topic.slider[0].value}
+                        aria-label="slider"
                         step={50}
                         min={topic.slider[0].value}
                         max={topic.slider[topic.slider.length-1].value}
                         valueLabelDisplay="off"
                         marks={topic.slider}
+                        onChange={(i, val) => this.sliderChangeHandler(i, val, topic.id)}
                       />
                   </div>
                 : null

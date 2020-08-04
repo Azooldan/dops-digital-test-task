@@ -10,7 +10,7 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]::-ms-track {
   width: 100%;
   cursor: pointer;
-  background: transparent; /* Скрывает слайдер, чтобы можно было добавить собственные стили. */
+  background: transparent; 
   border-color: transparent;
   color: transparent;
 }
