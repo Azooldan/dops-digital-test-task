@@ -24,6 +24,9 @@
   margin-right: 20px;
   padding-bottom: 6.4%;
 }
+.estimate-block-for-mobile {
+  display: none;
+}
 
 .evaluation-topics {
   width: 50%
@@ -32,4 +35,43 @@
 .comments {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 1200px) {
+  .App {
+    width: 97%;
+  }
+  .main-text {
+    margin-top: 30px;
+  }
+  .main-content {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .App {
+    width: 75%;
+  }
+}
+
+@media (min-width: 2000px) {
+  .App {
+    width: 55%;
+  }
+}
+
+@media (max-width: 640px) {
+  .comments {
+    display: grid;
+    grid-template-columns:  1fr;
+  }
+
+  .estimate-block {
+    display: none;
+  }
+  .estimate-block-for-mobile {
+    display: block;
+    width: 100%;
+  }
 }

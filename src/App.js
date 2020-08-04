@@ -24,7 +24,8 @@ export default class App extends Component {
       scrollProgress: 0,
       idChoseQuality: null,
       qualityPrice: 0,
-      topicsPrices: topicsPrices
+      topicsPrices: topicsPrices,
+      isAllOptionsChecked: false
     }
   }
   
@@ -69,12 +70,29 @@ export default class App extends Component {
     for (let i = 1; i < 7; i++) {
       topicsCost += topicsPrices[i]
     }
+
+    this.checkIfAllTopicsChecked();
+
     return topicsCost + finalCost;
+  }
+
+  checkIfAllTopicsChecked = () => {
+    const { topicsPrices } = this.state;
+    var isAllChecked = true;
+
+    for (let i = 1; i < 7; i++) {
+      if(topicsPrices[i] == 0) {
+        isAllChecked = false;
+        break;
+      }
+    }
+    return isAllChecked
+
   }
   
   render() {
     const { scrollProgress, idChoseQuality, topicsPrices } = this.state;
-    
+
     return(
       <div className="App">
         
@@ -92,7 +110,8 @@ export default class App extends Component {
             <EstimateBlock 
               value={this.calculateTotalPrice()} 
               scrollProgress={scrollProgress}
-              topicsPrices={topicsPrices}/>
+              topicsPrices={topicsPrices}
+              isAllOptionsChecked={this.checkIfAllTopicsChecked()}/>
           </div>
 
           <div className="evaluation-topics">
@@ -103,6 +122,14 @@ export default class App extends Component {
               handleQualityChoose={this.handleQualityChoose}
               calculateTopicPrice={this.calculateTopicPrice}
               />
+
+            <div className="estimate-block-for-mobile">
+              <EstimateBlock 
+                value={this.calculateTotalPrice()} 
+                scrollProgress={scrollProgress}
+                topicsPrices={topicsPrices}
+                isAllOptionsChecked={this.checkIfAllTopicsChecked()}/>
+            </div>
 
             <div className='comments'>
               <Comments/>

@@ -18,3 +18,27 @@
 .topic-slider {
   width:60%
 }
+
+@media (max-width: 640px){
+  .evaluation-topics {
+    width: 95%
+  }
+  .topic-quality-container {
+    width: 95%;
+  }
+}
+  
+@media (min-width: 768px){
+  
+
+}
+  
+@media (min-width: 1024px){
+  
+  
+}
+  
+@media (min-width: 1200px){
+  
+  
+}

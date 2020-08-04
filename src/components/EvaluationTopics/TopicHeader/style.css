@@ -33,3 +33,10 @@
   font-size: 14px;
   color: #7B7B7B;
 }
+
+@media (max-width: 640px){
+  .topic-header-title, .topic-header-text {
+    max-width: 70%;
+  }
+
+}

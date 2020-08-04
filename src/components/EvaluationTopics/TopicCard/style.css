@@ -55,5 +55,12 @@
   visibility: visible;
 }
 .card:hover{
-  opacity: 0.7;
+  opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+  .card:hover .card-image{
+    opacity: 0;
+    visibility: hidden;
+  }
 }

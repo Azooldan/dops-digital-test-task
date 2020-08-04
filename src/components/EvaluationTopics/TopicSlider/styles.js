@@ -1,6 +1,10 @@
 export const styles = (theme) => ({
   root: {
-
+    color: "red",
+    height: 2,
+    width: "100%",
+    marginTop: "20px",
+    marginBottom: "50px",
   },
   thumb: {
     height: "14px",

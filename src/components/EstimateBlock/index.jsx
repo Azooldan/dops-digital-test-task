@@ -8,12 +8,8 @@ export default class EstimateBlock extends Component {
 
     this.state = {
       inputText: '',
-      isSubmitDisabled: 'disabled'
     }
 
-  }
-
-  componentDidMount() {
   }
 
   handleChange = (e) => {
@@ -23,7 +19,7 @@ export default class EstimateBlock extends Component {
   }
 
   render() {
-    const { value, inputText, scrollProgress, topicsPrices, isSubmitDisabled } = this.props;
+    const { value, inputText, scrollProgress, topicsPrices, isAllOptionsChecked } = this.props;
 
     return(
       <div className='estimate-block-container'>
@@ -56,7 +52,7 @@ export default class EstimateBlock extends Component {
               className='contact-form-submit' 
               type="submit" 
               onClick={this.handleSubmit} 
-              disabled="false">
+              disabled={!isAllOptionsChecked}>
                 Submit
             </button>
           </form>
