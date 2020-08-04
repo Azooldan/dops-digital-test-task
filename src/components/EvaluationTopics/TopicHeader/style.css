@@ -34,7 +34,7 @@
   color: #7B7B7B;
 }
 
-@media (max-width: 640px){
+@media (max-width:768px){
   .topic-header-title, .topic-header-text {
     max-width: 70%;
   }

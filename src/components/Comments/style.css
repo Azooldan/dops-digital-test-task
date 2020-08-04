@@ -36,7 +36,7 @@
   margin-bottom: 50px;
 }
 
-@media (max-width: 640px) {
+@media (max-width:768px) {
   .comment-container {
     width: 100%;
   }

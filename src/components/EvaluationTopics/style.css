@@ -16,10 +16,10 @@
 }
 
 .topic-slider {
-  width:60%
+  width:50%;
 }
 
-@media (max-width: 640px){
+@media (max-width:768px){
   .evaluation-topics {
     width: 95%
   }
@@ -34,7 +34,6 @@
 }
   
 @media (min-width: 1024px){
-  
   
 }
   

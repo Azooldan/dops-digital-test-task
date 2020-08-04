@@ -70,7 +70,9 @@ export default class EvaluationTopics extends Component {
 
   render() {
     const { handleCardClick, handleQualityChoose, idChoseQuality, calculateTopicPrice} = this.props;
-    
+    topics.map((topic, i) => {
+      console.log(topic.slider)
+    })
     return(
       <div>
         {
@@ -106,15 +108,15 @@ export default class EvaluationTopics extends Component {
                   </div>
                 : topic.hasOwnProperty('slider')
                 ? <div className='topic-slider'>
-                     {/* <TopicSlider 
-                        defaultValue={20}
-                        aria-label="slider"
-                        step={5}
-                        min={5}
-                        max={40}
+                      <TopicSlider 
+                      defaultValue={topic.slider[0].value}
+                      aria-label="slider"
+                        step={50}
+                        min={topic.slider[0].value}
+                        max={topic.slider[topic.slider.length-1].value}
                         valueLabelDisplay="off"
                         marks={topic.slider}
-                        />  */}
+                      />
                   </div>
                 : null
               }
@@ -214,35 +216,35 @@ const topics = [{
   "text": "Find a time that suits your animation idea.",
   "slider" : [
     {
-      "value": "50", 
+      "value": 50,
       "label": "5"
     },
     {
-      "value": "100", 
+      "value": 100,
       "label": "10"
     },
     {
-      "value": "150", 
+      "value": 150,
       "label": "15"
     },
     {
-      "value": "200", 
+      "value": 200,
       "label": "20"
     },
     {
-      "value": "250", 
+      "value": 250,
       "label": "25"
     },
     {
-      "value": "300", 
+      "value": 300,
       "label": "30"
     },
     {
-      "value": "350", 
+      "value": 350,
       "label": "35"
     },
     {
-      "value": "40", 
+      "value": 400,
       "label": "40"
     }
   ]
@@ -254,23 +256,23 @@ const topics = [{
   "text": "Do you have a particular time frame in mind?",
   "slider" : [
     {
-      "value": "50", 
+      "value": 50, 
       "label": "Anytime"
     },
     {
-      "value": "100", 
+      "value": 100, 
       "label": "16 weeks"
     },
     {
-      "value": "150", 
+      "value": 150, 
       "label": "8 weeks"
     },
     {
-      "value": "200", 
+      "value": 200, 
       "label": "4 weeks"
     },
     {
-      "value": "25", 
+      "value": 250, 
       "label": "ASAP"
     },
   ]

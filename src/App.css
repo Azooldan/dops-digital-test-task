@@ -21,7 +21,7 @@
 
 .estimate-block {
   width: 45%;
-  margin-right: 20px;
+  margin-right: 40px;
   padding-bottom: 6.4%;
 }
 .estimate-block-for-mobile {
@@ -61,7 +61,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width:768px) {
   .comments {
     display: grid;
     grid-template-columns:  1fr;

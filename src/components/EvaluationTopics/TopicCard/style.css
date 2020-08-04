@@ -58,7 +58,7 @@
   opacity: 0.85;
 }
 
-@media (max-width: 640px) {
+@media (max-width:768px) {
   .card:hover .card-image{
     opacity: 0;
     visibility: hidden;
