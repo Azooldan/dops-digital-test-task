@@ -303,6 +303,7 @@ const topics = [{
     {
       "id": 1,
       "url": "img/apple.svg",
+      "urlSelected": "img/apple-selected.svg",
       "text": "Acceptable Quality",
       "price": 500
     },
@@ -310,11 +311,13 @@ const topics = [{
       "id": 2,
       "url": "img/cherries.svg",
       "text": "Appropriate Quality",
+      "urlSelected": "img/cherries-selected.svg",
       "price": 1000
     },
     {
       "id": 3,
       "url": "img/soft--ice--cream.svg",
+      "urlSelected": "img/ice-cream-selected.svg",
       "text": "Premium Quality",
       "price": 1500
     },

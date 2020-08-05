@@ -17,10 +17,10 @@ export default class TopicQualitySelect extends Component {
     
     return(
       <div className='topic-quality-item' onClick={() => this.handleClick(topic, image)}>
-          <img src={image.url} alt={image.text} className='topic-quality-image'/>
+          <img src={topicsPrices[topic.id].selectedId === image.id ? image.urlSelected : image.url} alt={image.text} className='topic-quality-image'/>
 
           <div className='image-checkbox'>
-            <div className={`${topicsPrices[topic.id].selectedId == image.id ? 'card-circle card-circle-active' : 'card-circle'}`}></div>
+            <div className={`${topicsPrices[topic.id].selectedId === image.id ? 'card-circle card-circle-active' : 'card-circle'}`}></div>
             <span>{image.text}</span>
           </div>
       </div>
