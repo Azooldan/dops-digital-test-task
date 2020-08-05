@@ -84,6 +84,7 @@ a:hover, a:visited, a:link, a:active
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 30px;
+  flex-wrap: wrap;
 }
 .navigation span, .social-media span {
   cursor: pointer;
@@ -92,5 +93,30 @@ a:hover, a:visited, a:link, a:active
 @media (max-width: 768px){
   textarea {
     height: 7em;
+  }
+  .social-media, .second-col, .contact-us {
+    margin-left: 0
+  }
+}
+
+@media (max-width: 480px){
+  .footer-copyrights {
+    display: flex;
+    justify-content: center;
+  }
+  .social-media, .contact-us, .navigation {
+    width: 33%;
+    text-align: left;
+
+  }
+
+  .second-col {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .footer-navigation {
+    display: flex;
+    flex-direction: row;
   }
 }

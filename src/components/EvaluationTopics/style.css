@@ -1,14 +1,16 @@
 .evaluation-topics {
   width: 100%
 }
+
 .topic-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
 }
+
 .topic-element {
   margin-bottom: 65px;
 }
+
 .topic-quality-container {
   width: 80%;
   display: grid;
@@ -47,12 +49,17 @@
     margin-bottom: 35px;
   }
   .topic-slider {
-    width:92.5%;
-    margin-left: 5%;
+    width: 85%;
+    margin: auto;
+    align-items: center;
   }
 }
   
-@media (min-width: 1200px){
-  
-  
+@media (max-width: 4400px){
+  .topic-quality-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

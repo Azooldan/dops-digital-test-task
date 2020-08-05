@@ -1,9 +1,9 @@
 .card {
-  width: 100%;
+  width: 96%;
   border: 1px solid #494949;
   border-radius: 4px;
   text-align: start;
-  padding-left: 10px;
+  margin-bottom: 4%;
   padding-top: 5px;
   padding-bottom: 5px;
   display: flex;
@@ -59,7 +59,9 @@
 .card:hover{
   opacity: 0.85;
 }
-
+.card-info-text {
+  margin-left: 10px;
+}
 @media (max-width:768px) {
   .card:hover .card-image{
     opacity: 0;
@@ -78,6 +80,6 @@
     padding-left: 10px;
     padding-top: 3px;
     padding-bottom: 3px;
-
+    margin-bottom: 2.5%;
   }
 }

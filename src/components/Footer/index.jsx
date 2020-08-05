@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
 
         <div className='third-col'>
-          <span>created by azooldan</span>
+          <span>  <a href="#"> created by azooldan</a> </span>
         </div>
 
       </div>
