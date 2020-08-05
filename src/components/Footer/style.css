@@ -66,6 +66,13 @@ a:hover, a:visited, a:link, a:active
 
 .third-col {
   text-align: end;
+  display: flex;
+  flex-direction: row;
+}
+
+.created-by-text {
+  text-decoration: underline !important;
+  color: #ffffff !important;
 }
 
 .footer-navigation {

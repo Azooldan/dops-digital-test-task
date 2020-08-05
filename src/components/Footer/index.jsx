@@ -57,7 +57,8 @@ export default function Footer() {
         </div>
 
         <div className='third-col'>
-          <span>  <a href="#"> created by azooldan</a> </span>
+          <span> created by  &nbsp;</span>
+          <a href="https://www.linkedin.com/in/volodymyr-pashkonskyi-497736183/" className='created-by-text'> azooldan</a>
         </div>
 
       </div>
